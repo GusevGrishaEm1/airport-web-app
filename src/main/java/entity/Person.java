@@ -27,4 +27,34 @@ public class Person {
 
     @ManyToMany(mappedBy = "persons")
     private Set<Flight> flights = new HashSet<>();
+
+    public Integer getId() {
+        return id;
+    }
+
+    public String getFullName() {
+        return fullName;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public Date getBirthday() {
+        return birthday;
+    }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "id=" + id +
+                ", fullName='" + fullName + '\'' +
+                ", address='" + address + '\'' +
+                ", role='" + role + '\'' +
+                ", birthday=" + birthday;
+    }
 }
