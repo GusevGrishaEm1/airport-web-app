@@ -3,7 +3,6 @@ package servlet.person;
 import entity.Person;
 import service.PersonService;
 import util.HibernateSessionFactory;
-
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
