@@ -9,9 +9,10 @@
         <property name="hibernate.connection.username">postgres</property>
         <property name="hibernate.connection.password">s$cret</property>
         <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/airportdb</property>
-        <property name="hbm2ddl.auto">create</property>
+        <property name="hbm2ddl.auto">update</property>
         <mapping class="entity.Person"/>
         <mapping class="entity.Flight"/>
         <mapping class="entity.Airplane"/>
+        <mapping class="entity.Baggage"/>
     </session-factory>
 </hibernate-configuration>
