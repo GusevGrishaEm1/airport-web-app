@@ -5,17 +5,47 @@
          version="4.0">
 
     <servlet>
-        <servlet-name>PersonServlet</servlet-name>
-        <servlet-class>controller.PersonServlet</servlet-class>
+        <servlet-name>ViewPerson</servlet-name>
+        <servlet-class>servlet.person.ViewPerson</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>CreatePerson</servlet-name>
+        <servlet-class>servlet.person.CreatePerson</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>DeletePerson</servlet-name>
+        <servlet-class>servlet.person.DeletePerson</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>UpdatePerson</servlet-name>
+        <servlet-class>servlet.person.UpdatePerson</servlet-class>
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>PersonServlet</servlet-name>
+        <servlet-name>ViewPerson</servlet-name>
         <url-pattern>/persons</url-pattern>
     </servlet-mapping>
 
+    <servlet-mapping>
+        <servlet-name>DeletePerson</servlet-name>
+        <url-pattern>/persons/delete</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>UpdatePerson</servlet-name>
+        <url-pattern>/persons/update</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>CreatePerson</servlet-name>
+        <url-pattern>/persons/create</url-pattern>
+    </servlet-mapping>
+
     <welcome-file-list>
-        <welcome-file>persons.jsp</welcome-file>
+        <welcome-file>persons/persons.jsp</welcome-file>
     </welcome-file-list>
 
 </web-app>

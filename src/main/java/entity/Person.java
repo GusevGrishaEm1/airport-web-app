@@ -48,6 +48,23 @@ public class Person {
         return birthday;
     }
 
+    public Person(String fullName, String address, String role, Date birthday) {
+        this.fullName = fullName;
+        this.address = address;
+        this.role = role;
+        this.birthday = birthday;
+    }
+
+    public Person(Integer id, String fullName, String address, String role, Date birthday) {
+        this.id = id;
+        this.fullName = fullName;
+        this.address = address;
+        this.role = role;
+        this.birthday = birthday;
+    }
+
+    public Person() {}
+
     @Override
     public String toString() {
         return "Person{" +
