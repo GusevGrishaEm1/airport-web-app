@@ -1,21 +1,23 @@
 package repository;
 
-import entity.Airplane;
+import entity.Flight;
+import entity.Person;
+import entity.PersonFlight;
 import exception.NotFoundException;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.query.Query;
 import util.HibernateSessionFactory;
 import java.util.List;
 
-public class AirplaneRepository {
+public class PersonFlightRepository {
 
-
-    public Airplane create(Airplane airplane) {
+    public PersonFlight create(PersonFlight personFlight) {
         Transaction transaction = null;
         try (Session session = HibernateSessionFactory.buildSessionFactory().openSession()) {
             transaction = session.beginTransaction();
-            session.save(airplane);
+            session.save(personFlight);
             transaction.commit();
         } catch (HibernateException e) {
             if (transaction != null) {
@@ -23,14 +25,14 @@ public class AirplaneRepository {
             }
             e.printStackTrace();
         }
-        return airplane;
+        return personFlight;
     }
 
-    public Airplane update(Airplane airplane) {
+    public PersonFlight update(PersonFlight personFlight) {
         Transaction transaction = null;
         try (Session session = HibernateSessionFactory.buildSessionFactory().openSession()) {
             transaction = session.beginTransaction();
-            session.saveOrUpdate(airplane);
+            session.saveOrUpdate(personFlight);
             transaction.commit();
         } catch (HibernateException e) {
             if (transaction != null) {
@@ -38,15 +40,15 @@ public class AirplaneRepository {
             }
             e.printStackTrace();
         }
-        return airplane;
+        return personFlight;
     }
 
-    public Integer delete(Integer id) {
+    public void delete(Person person, Flight flight) {
         Transaction transaction = null;
         try (Session session = HibernateSessionFactory.buildSessionFactory().openSession()) {
             transaction = session.beginTransaction();
-            Airplane airplane = session.get(Airplane.class, id);
-            session.delete(airplane);
+            PersonFlight personFlight = session.get(PersonFlight.class, new PersonFlight(person, flight));
+            session.delete(personFlight);
             transaction.commit();
         } catch (HibernateException e) {
             if (transaction != null) {
@@ -54,28 +56,38 @@ public class AirplaneRepository {
             }
             e.printStackTrace();
         }
-        return id;
     }
 
-    public List<Airplane> getAll() {
-        List<Airplane> airplanes = null;
+    public List<PersonFlight> getAll() {
+        List<PersonFlight> personFlightList = null;
         try (Session session = HibernateSessionFactory.buildSessionFactory().openSession()) {
-            airplanes = session.createQuery("FROM Airplane", Airplane.class).list();
+            personFlightList = session.createQuery("FROM PersonFlight", PersonFlight.class).list();
         } catch (HibernateException e) {
             e.printStackTrace();
         }
-        return airplanes;
+        return personFlightList;
     }
 
-    public Airplane getById(Integer id) {
-        Airplane airplane = null;
+    public List<PersonFlight> getByPersonId(Integer personId) {
+        List<PersonFlight> personFlightList = null;
         try (Session session = HibernateSessionFactory.buildSessionFactory().openSession()) {
-            airplane = session.get(Airplane.class, id);
-            if (airplane == null) throw new NotFoundException("Airplane not found");
+            Query<PersonFlight> query = session.createQuery("FROM PersonFlight WHERE person.id = :personId", PersonFlight.class);
+            query.setParameter("personId",personId);
+            personFlightList = query.list();
         } catch (HibernateException e) {
             e.printStackTrace();
         }
-        return airplane;
+        return personFlightList;
     }
 
+    public PersonFlight getById(Integer id) {
+        PersonFlight personFlight = null;
+        try (Session session = HibernateSessionFactory.buildSessionFactory().openSession()) {
+            personFlight = session.get(PersonFlight.class, id);
+            if (personFlight == null) throw new NotFoundException("PersonFlight not found");
+        } catch (HibernateException e) {
+            e.printStackTrace();
+        }
+        return personFlight;
+    }
 }

@@ -32,4 +32,8 @@ public class PersonService {
         return personRepository.getById(id);
     }
 
+    public List<Person> getByFullName(String fullName) {return personRepository.getByFullName(fullName);}
+
+    public List<Person> getByFlightId(Integer flightId) {return personRepository.getByFlightId(flightId);}
+
 }

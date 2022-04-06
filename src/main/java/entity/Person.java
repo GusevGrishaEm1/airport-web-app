@@ -2,8 +2,8 @@ package entity;
 
 import javax.persistence.*;
 import java.sql.Date;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "person")
@@ -17,16 +17,19 @@ public class Person {
     private String fullName;
 
     @Column(name = "address", nullable = false)
-    private String address;
+    private Gender gender;
 
     @Column(name = "role", nullable = false)
-    private String role;
+    private Role role;
 
     @Column(name = "birthday", nullable = false)
     private Date birthday;
 
-    @ManyToMany(mappedBy = "persons")
-    private Set<Flight> flights = new HashSet<>();
+    @OneToMany(mappedBy = "person", orphanRemoval = true, cascade = CascadeType.PERSIST)
+    private List<Baggage> baggagies = new ArrayList<>();
+
+    @OneToMany(mappedBy = "person", orphanRemoval = true, cascade = CascadeType.PERSIST)
+    private List<PersonFlight> personFlightList = new ArrayList<>();
 
     public Integer getId() {
         return id;
@@ -36,11 +39,11 @@ public class Person {
         return fullName;
     }
 
-    public String getAddress() {
-        return address;
+    public Gender getGender() {
+        return gender;
     }
 
-    public String getRole() {
+    public Role getRole() {
         return role;
     }
 
@@ -48,17 +51,17 @@ public class Person {
         return birthday;
     }
 
-    public Person(String fullName, String address, String role, Date birthday) {
+    public Person(String fullName, Gender gender, Role role, Date birthday) {
         this.fullName = fullName;
-        this.address = address;
+        this.gender = gender;
         this.role = role;
         this.birthday = birthday;
     }
 
-    public Person(Integer id, String fullName, String address, String role, Date birthday) {
+    public Person(Integer id, String fullName, Gender gender, Role role, Date birthday) {
         this.id = id;
         this.fullName = fullName;
-        this.address = address;
+        this.gender = gender;
         this.role = role;
         this.birthday = birthday;
     }
@@ -70,7 +73,7 @@ public class Person {
         return "Person{" +
                 "id=" + id +
                 ", fullName='" + fullName + '\'' +
-                ", address='" + address + '\'' +
+                ", gender='" + gender + '\'' +
                 ", role='" + role + '\'' +
                 ", birthday=" + birthday;
     }

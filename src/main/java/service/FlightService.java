@@ -2,6 +2,7 @@ package service;
 
 import entity.Flight;
 import repository.FlightRepository;
+
 import java.util.List;
 
 public class FlightService {
@@ -26,6 +27,10 @@ public class FlightService {
 
     public List<Flight> getAll() {
         return flightRepository.getAll();
+    }
+
+    public List<Flight> getByFromAndTo(String from, String to) {
+        return flightRepository.getByFromAndTo(from, to);
     }
 
     public Flight getById(Integer id) {
