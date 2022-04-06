@@ -24,14 +24,84 @@
         <servlet-class>servlet.person.UpdatePerson</servlet-class>
     </servlet>
 
-    <servlet-mapping>
-        <servlet-name>ViewPerson</servlet-name>
-        <url-pattern>/persons</url-pattern>
-    </servlet-mapping>
+    <servlet>
+        <servlet-name>CreateFlight</servlet-name>
+        <servlet-class>servlet.flight.CreateFlight</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>UpdateFlight</servlet-name>
+        <servlet-class>servlet.flight.UpdateFlight</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>DeleteFlight</servlet-name>
+        <servlet-class>servlet.flight.DeleteFlight</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>ViewFlight</servlet-name>
+        <servlet-class>servlet.flight.ViewFlight</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>CreateAirplane</servlet-name>
+        <servlet-class>servlet.airplane.CreateAirplane</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>DeleteAirplane</servlet-name>
+        <servlet-class>servlet.airplane.DeleteAirplane</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>UpdateAirplane</servlet-name>
+        <servlet-class>servlet.airplane.UpdateAirplane</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>ViewAirplane</servlet-name>
+        <servlet-class>servlet.airplane.ViewAirplane</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>CreateBaggage</servlet-name>
+        <servlet-class>servlet.baggage.CreateBaggage</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>UpdateBaggage</servlet-name>
+        <servlet-class>servlet.baggage.UpdateBaggage</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>DeleteBaggage</servlet-name>
+        <servlet-class>servlet.baggage.DeleteBaggage</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>ViewBaggage</servlet-name>
+        <servlet-class>servlet.baggage.ViewBaggage</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>CreatePersonFlight</servlet-name>
+        <servlet-class>servlet.person_flight.CreatePersonFlight</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>DeletePersonFlight</servlet-name>
+        <servlet-class>servlet.person_flight.DeletePersonFlight</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>ViewPersonFlight</servlet-name>
+        <servlet-class>servlet.person_flight.ViewPersonFlight</servlet-class>
+    </servlet>
 
     <servlet-mapping>
-        <servlet-name>DeletePerson</servlet-name>
-        <url-pattern>/persons/delete</url-pattern>
+        <servlet-name>CreatePerson</servlet-name>
+        <url-pattern>/persons/create</url-pattern>
     </servlet-mapping>
 
     <servlet-mapping>
@@ -40,8 +110,93 @@
     </servlet-mapping>
 
     <servlet-mapping>
-        <servlet-name>CreatePerson</servlet-name>
-        <url-pattern>/persons/create</url-pattern>
+        <servlet-name>DeletePerson</servlet-name>
+        <url-pattern>/persons/delete</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>ViewPerson</servlet-name>
+        <url-pattern>/persons</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>ViewPerson</servlet-name>
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>CreateFlight</servlet-name>
+        <url-pattern>/flights/create</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>UpdateFlight</servlet-name>
+        <url-pattern>/flights/update</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>DeleteFlight</servlet-name>
+        <url-pattern>/flights/delete</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>ViewFlight</servlet-name>
+        <url-pattern>/flights</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>CreateAirplane</servlet-name>
+        <url-pattern>/airplanes/create</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>UpdateAirplane</servlet-name>
+        <url-pattern>/airplanes/update</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>DeleteAirplane</servlet-name>
+        <url-pattern>/airplanes/delete</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>ViewAirplane</servlet-name>
+        <url-pattern>/airplanes</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>CreateBaggage</servlet-name>
+        <url-pattern>/baggagies/create</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>UpdateBaggage</servlet-name>
+        <url-pattern>/baggagies/update</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>DeleteBaggage</servlet-name>
+        <url-pattern>/baggagies/delete</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>ViewBaggage</servlet-name>
+        <url-pattern>/baggagies</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>CreatePersonFlight</servlet-name>
+        <url-pattern>/personsflights/create</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>DeletePersonFlight</servlet-name>
+        <url-pattern>/personsflights/delete</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>ViewPersonFlight</servlet-name>
+        <url-pattern>/personsflights</url-pattern>
     </servlet-mapping>
 
     <welcome-file-list>

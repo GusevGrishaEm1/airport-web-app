@@ -30,4 +30,6 @@ public class BaggageService {
     public Baggage getById(Integer id) {
         return baggageRepository.getById(id);
     }
+
+    public List<Baggage> getByPersonId(Integer personId) {return baggageRepository.getByPersonId(personId);}
 }

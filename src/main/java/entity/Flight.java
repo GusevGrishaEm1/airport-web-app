@@ -1,9 +1,9 @@
 package entity;
 
 import javax.persistence.*;
-import java.sql.Timestamp;
-import java.util.HashSet;
-import java.util.Set;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "flight")
@@ -20,21 +20,59 @@ public class Flight {
     private String toAirportName;
 
     @Column(name = "arrival_time", nullable = false)
-    private Timestamp arrivalTime;
+    private LocalDateTime arrivalTime;
 
     @Column(name = "departure_time", nullable = false)
-    private Timestamp departureTime;
-
-    @ManyToMany(cascade = {CascadeType.ALL})
-    @JoinTable(
-            name = "Person_Flight",
-            joinColumns = {@JoinColumn(name = "flight_id")},
-            inverseJoinColumns = {@JoinColumn(name = "person_id")}
-    )
-    private Set<Person> persons = new HashSet<>();
+    private LocalDateTime departureTime;
 
     @ManyToOne
     @JoinColumn(name = "airplane_id", nullable = false)
     private Airplane airplane;
 
+    @OneToMany(mappedBy = "flight", orphanRemoval = true, cascade = CascadeType.PERSIST)
+    private List<PersonFlight> personFlightList = new ArrayList<>();
+
+    public Flight() {
+    }
+
+    public Flight(String fromAirportName, String toAirportName, LocalDateTime arrivalTime, LocalDateTime departureTime, Airplane airplane) {
+        this.fromAirportName = fromAirportName;
+        this.toAirportName = toAirportName;
+        this.arrivalTime = arrivalTime;
+        this.departureTime = departureTime;
+        this.airplane = airplane;
+    }
+
+    public Flight(Integer id, String fromAirportName, String toAirportName, LocalDateTime arrivalTime, LocalDateTime departureTime, Airplane airplane) {
+        this.id = id;
+        this.fromAirportName = fromAirportName;
+        this.toAirportName = toAirportName;
+        this.arrivalTime = arrivalTime;
+        this.departureTime = departureTime;
+        this.airplane = airplane;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public String getFromAirportName() {
+        return fromAirportName;
+    }
+
+    public String getToAirportName() {
+        return toAirportName;
+    }
+
+    public LocalDateTime getArrivalTime() {
+        return arrivalTime;
+    }
+
+    public LocalDateTime getDepartureTime() {
+        return departureTime;
+    }
+
+    public Airplane getAirplane() {
+        return airplane;
+    }
 }

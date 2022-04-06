@@ -14,5 +14,6 @@
         <mapping class="entity.Flight"/>
         <mapping class="entity.Airplane"/>
         <mapping class="entity.Baggage"/>
+        <mapping class="entity.PersonFlight"/>
     </session-factory>
 </hibernate-configuration>
